@@ -1,0 +1,42 @@
+{
+  "connection": "default",
+  "collectionName": "twits",
+  "info": {
+    "name": "twit",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "texto": {
+      "type": "text",
+      "maxLength": 280
+    },
+    "media": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload"
+    },
+    "background": {
+      "enum": [
+        "blue",
+        "red",
+        "yellow",
+        "black"
+      ],
+      "type": "enumeration",
+      "default": "white"
+    },
+    "user": {
+      "model": "user",
+      "via": "twits",
+      "plugin": "users-permissions"
+    },
+    "likes": {
+      "type": "integer"
+    }
+  }
+}
